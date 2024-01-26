@@ -1,0 +1,13 @@
+{
+    "words": [
+        "beckhoff"
+    ],
+    "ignoreWords": [
+        "ontcuiclientready",
+        "tcuiclient",
+        "tcuiclientready"
+    ],
+    "ignorePaths": [
+        "**/node_modules/**"
+    ]
+}

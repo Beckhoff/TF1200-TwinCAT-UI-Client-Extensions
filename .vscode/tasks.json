@@ -1,0 +1,41 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Start TcUiClient",
+            "type": "shell",
+            "command": "/usr/local/etc/TwinCAT/Functions/TF1200-UI-Client/TF1200-UI-Client &",
+            "windows": {
+                "command": "Start-Process \\\"${input:executablePath}\\\"",
+                "options": {
+                    "shell": {
+                        "executable": "powershell.exe"
+                    }
+                }
+            }
+        },
+        {
+            "label": "Stop TcUiClient",
+            "type": "shell",
+            "command": "echo \"Task not implemented\"",
+            "windows": {
+                "command": "Get-Process TF1200-UI-Client -ErrorAction SilentlyContinue | ForEach-Object { $_.CloseMainWindow() | Out-Null }",
+                "options": {
+                    "shell": {
+                        "executable": "powershell.exe"
+                    }
+                }
+            }
+        }
+    ],
+    "inputs": [
+        {
+            "id": "executablePath",
+            "type": "promptString",
+            "default": "C:\\Program Files (x86)\\Beckhoff\\TcUiClient\\TF1200-UI-Client.exe",
+            "description": "Path to the TF1200-UI-Client executable"
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "attach",
+            "name": "Start extension",
+            "port": "${input:portNumber}",
+            "address": "localhost",
+            "preLaunchTask": "Start TcUiClient",
+            "postDebugTask": "Stop TcUiClient"
+        },
+        {
+            "type": "node",
+            "request": "attach",
+            "name": "Attach to TcUiClient",
+            "port": "${input:portNumber}",
+            "address": "localhost"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "portNumber",
+            "type": "promptString",
+            "description": "Debug port of the extension to attach to"
+        }
+    ]
+}
