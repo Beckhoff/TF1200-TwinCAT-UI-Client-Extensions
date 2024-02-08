@@ -1,0 +1,6 @@
+{
+    "name": "Logging",
+    "version": "1.0.0",
+    "entryPoint": "index.js",
+    "description": "This extension logs simple messages to a text file"
+}
