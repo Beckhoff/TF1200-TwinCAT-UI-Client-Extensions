@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {
+    "Symbol_Of_TcHmi.Controls.Beckhoff.TcHmiNumericInput": {
+      "allOf": [
+        {
+          "$ref": "tchmi:framework#/definitions/Symbol"
+        },
+        {
+          "frameworkSymbolSubType": {
+            "$ref": "tchmi:framework#/definitions/TcHmi.Controls.Beckhoff.TcHmiNumericInput"
+          }
+        }
+      ]
+    },
+    "Symbol_Of_TcHmi.Controls.Beckhoff.TcHmiNumericInput.Value": {
+      "allOf": [
+        {
+          "$ref": "tchmi:framework#/definitions/Symbol"
+        },
+        {
+          "frameworkSymbolSubType": {
+            "$ref": "tchmi:framework#/definitions/TcHmi.Controls.Beckhoff.TcHmiNumericInput.Value"
+          }
+        }
+      ]
+    }
+  }
+}

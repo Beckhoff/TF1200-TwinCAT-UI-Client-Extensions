@@ -1,0 +1,57 @@
+{
+  "function": {
+    "name": "Increment",
+    "namespace": "TcHmi.Functions.HmiProject",
+    "displayName": "Increment",
+    "description": "",
+    "waitMode": "Synchronous",
+    "category": "",
+    "returnValue": {
+      "type": "tchmi:general#/definitions/VOID"
+    },
+    "visible": true,
+    "injectContextObject": false,
+    "arguments": [
+      {
+        "name": "inValue",
+        "displayName": "inValue",
+        "type": "tchmi:general#/definitions/Number",
+        "description": "Value to be sent to the Extension to increment",
+        "defaultValue": null,
+        "required": true,
+        "bindable": true,
+        "restParameter": false,
+        "asReference": false,
+        "allowControlAttributeBindingOptions": false
+      },
+      {
+        "name": "outControlId",
+        "displayName": "outControlId",
+        "type": "tchmi:general#/definitions/String",
+        "description": "Id of the NumericInput to write the result to",
+        "defaultValue": "",
+        "required": true,
+        "bindable": true,
+        "restParameter": false,
+        "asReference": false,
+        "allowControlAttributeBindingOptions": false
+      }
+    ]
+  },
+  "$schema": "Packages/Beckhoff.TwinCAT.HMI.Framework.14.0.208/runtimes/native1.12-tchmi/Schema/FunctionDescription.Schema.json",
+  "apiVersion": 1,
+  "version": {
+    "full": "0.0.0.0",
+    "major": 0,
+    "minor": 0,
+    "revision": 0,
+    "build": 0
+  },
+  "dependencyFiles": [
+    {
+      "name": "Increment.js",
+      "type": "JavaScript",
+      "description": ""
+    }
+  ]
+}
