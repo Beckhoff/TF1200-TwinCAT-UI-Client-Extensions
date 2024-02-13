@@ -1,13 +1,18 @@
 {
     "words": [
-        "beckhoff"
+        "beckhoff",
+        "unprotect"
     ],
     "ignoreWords": [
+        "dpapi",
         "ontcuiclientready",
+        "primno",
+        "tchmi",
         "tcuiclient",
         "tcuiclientready"
     ],
     "ignorePaths": [
+        "**/HmiProject/HmiProject/**",
         "**/node_modules/**"
     ]
 }

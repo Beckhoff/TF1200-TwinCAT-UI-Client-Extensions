@@ -1,0 +1,33 @@
+{
+    "name": "AutoLogin",
+    "version": "1.0.0",
+    "entryPoint": "index.js",
+    "description": "This extension enables automatic login to the TwinCAT HMI Server",
+    "rendererScript": "renderer.js",
+    "menuBar": [
+        {
+            "label": "Login at startup",
+            "click": "toggleLoginAtStartup",
+            "type": "checkbox",
+            "id": "loginAtStartup"
+        },
+        {
+            "label": "Login at startup as...",
+            "submenu": [],
+            "id": "loginAtStartupAs"
+        },
+        {
+            "type": "separator"
+        },
+        {
+            "label": "Login as...",
+            "submenu": [],
+            "id": "loginAs",
+            "enabled": false
+        },
+        {
+            "label": "Logout",
+            "click": "logout"
+        }
+    ]
+}

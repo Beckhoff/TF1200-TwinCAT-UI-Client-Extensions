@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@beckhoff/tc-ui-client-ext": "file:../../Packages/tc-ui-client-ext-1.0.0.tgz",
+    "@primno/dpapi": "1.1.2"
+  }
+}
