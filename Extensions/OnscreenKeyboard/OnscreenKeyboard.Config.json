@@ -1,0 +1,17 @@
+{
+    "name": "OnscreenKeyboard",
+    "version": "1.1.1",
+    "entryPoint": "index.js",
+    "rendererScript": "renderer.js",
+    "description": "Open and close the Windows On-screen keyboard (osk.exe)",
+    "menuBar": [
+        {
+            "label": "Open on-screen keyboard",
+            "click": "openOnscreenKeyboard"
+        },
+        {
+            "label": "Close on-screen keyboard",
+            "click": "closeOnscreenKeyboard"
+        }
+    ]
+}

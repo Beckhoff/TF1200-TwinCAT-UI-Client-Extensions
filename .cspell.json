@@ -8,6 +8,7 @@
         "dpapi",
         "ontcuiclientready",
         "primno",
+        "taskkill",
         "tchmi",
         "tcuiclient",
         "tcuiclientready"
