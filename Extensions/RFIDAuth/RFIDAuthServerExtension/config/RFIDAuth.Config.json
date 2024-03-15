@@ -1,0 +1,124 @@
+{
+  "$schema": "ExtensionSettings.Schema.json",
+  "guid": "ad27f80c-ee56-4def-897c-3748083af219",
+  "version": "1.0.0.0",
+  "configVersion": "1.0.0.0",
+  "policies": [
+    "StrictPropertyValidation",
+    "StrictConfigListenerFilter"
+  ],
+  "symbolCategories": [
+    {
+      "name": "__CUSTOM_CONFIG__",
+      "localization": "userConfiguration"
+    }
+  ],
+  "symbols": {
+    "ListUsers": {
+      "readValue": {
+        "function": true,
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "RenameUser": {
+      "readValue": {
+        "function": true
+      },
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "currentUserName": {
+            "type": "string",
+            "description": "Current name of the user."
+          },
+          "newUserName": {
+            "type": "string",
+            "description": "The new name of the user."
+          }
+        },
+        "required": [
+          "currentUserName",
+          "newUserName"
+        ]
+      },
+      "description": "Rename a user.",
+      "sample": {
+        "description": "Rename user `test` to `tester`.",
+        "value": {
+          "currentUserName": "test",
+          "newUserName": "tester"
+        }
+      }
+    },
+    "RemoveUser": {
+      "readValue": {
+        "function": true
+      },
+      "writeValue": {
+        "type": "string",
+        "description": "Name of the user."
+      },
+      "description": "Remove a user.",
+      "sample": {
+        "description": "Remove user `test`.",
+        "value": "test"
+      }
+    },
+    "AddUser": {
+      "readValue": {
+        "function": true
+      },
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "userName": {
+            "type": "string",
+            "description": "Name of the user."
+          },
+          "password": {
+            "type": "string",
+            "description": "Password of the user. Only a hash will be stored."
+          },
+          "enabled": {
+            "type": "boolean",
+            "description": "Indicates if the user can be used or not."
+          }
+        },
+        "required": [
+          "userName",
+          "password"
+        ]
+      },
+      "description": "Add or update user.",
+      "sample": {
+        "description": "Add user `test`.",
+        "value": {
+          "userName": "test",
+          "password": "YwboLB~[65H"
+        }
+      }
+    },
+    "ChangePassword": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "readValue": {
+        "function": true
+      },
+      "writeValue": {
+        "type": "object",
+        "properties": {
+          "currentPassword": {
+            "type": "string"
+          },
+          "newPassword": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

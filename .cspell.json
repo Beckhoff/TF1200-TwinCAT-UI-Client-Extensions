@@ -1,13 +1,21 @@
 {
     "words": [
+        "baltech",
         "beckhoff",
+        "endianness",
+        "euchner",
+        "idtronic",
+        "rfid",
         "subpaths",
         "textblock",
         "unprotect"
     ],
     "ignoreWords": [
+        "appdata",
+        "auth",
         "dpapi",
         "fifo",
+        "koffi",
         "ontcuiclientready",
         "primno",
         "readdir",

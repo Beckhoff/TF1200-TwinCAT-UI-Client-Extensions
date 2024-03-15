@@ -1,14 +1,17 @@
 {
-    "$schema": "https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/eslintrc.json",
+    "$schema": "https://json.schemastore.org/eslintrc.json",
     "env": {
         "browser": true,
         "commonjs": true,
         "es2021": true,
         "node": true
     },
-    "extends": "eslint:recommended",
+    "plugins": [
+        "@typescript-eslint"
+    ],
     "parserOptions": {
-        "ecmaVersion": "latest"
+        "ecmaVersion": "latest",
+        "sourceType": "commonjs"
     },
     "rules": {
         "indent": [
@@ -36,13 +39,56 @@
             "error",
             "never"
         ],
-        "space-before-blocks": "error"
+        "space-before-blocks": "error",
+        "no-multi-spaces": "error"
     },
     "globals": {
         "__extensionName": "readonly",
         "tcuiclient": "readonly"
     },
     "ignorePatterns": [
+        "**/bin/**",
         "**/HmiProject/HmiProject/**"
+    ],
+    "overrides": [
+        {
+            "files": [
+                "*.ts"
+            ],
+            "parser": "@typescript-eslint/parser",
+            "parserOptions": {
+                "project": [
+                    "./Extensions/RFIDAuth/TcUiClientExtension/src/tsconfig.json"
+                ]
+            },
+            "plugins": [
+                "@typescript-eslint"
+            ],
+            "extends": [
+                "plugin:@typescript-eslint/recommended"
+            ],
+            "rules": {
+                "@typescript-eslint/quotes": [
+                    "error",
+                    "double"
+                ],
+                "@typescript-eslint/semi": [
+                    "error",
+                    "always"
+                ],
+                "@typescript-eslint/brace-style": "error",
+                "@typescript-eslint/object-curly-spacing": [
+                    "error",
+                    "always"
+                ],
+                "@typescript-eslint/keyword-spacing": "error",
+                "@typescript-eslint/space-before-function-paren": [
+                    "error",
+                    "never"
+                ],
+                "@typescript-eslint/space-before-blocks": "error",
+                "@typescript-eslint/no-explicit-any": "off"
+            }
+        }
     ]
 }

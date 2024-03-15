@@ -1,0 +1,5 @@
+RfidDll
+x64
+
+*.vcxproj.user
+*.vcxproj.filters

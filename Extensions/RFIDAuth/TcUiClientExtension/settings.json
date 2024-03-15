@@ -1,0 +1,7 @@
+{
+    "comPort": 7,
+    "loginWhenCardDetected": true,
+    "logoutOnCardRemoved": true,
+    "deviceType": "EKS",
+    "loginDomain": "RFIDAuth"
+}

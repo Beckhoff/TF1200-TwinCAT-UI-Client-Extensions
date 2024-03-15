@@ -1,0 +1,36 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "comPort": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 255
+        },
+        "logoutOnCardRemoved": {
+            "type": "boolean",
+            "default": false
+        },
+        "loginWhenCardDetected": {
+            "type": "boolean",
+            "default": true
+        },
+        "loginDomain": {
+            "type": "string",
+            "default": "RFIDAuth"
+        },
+        "deviceType": {
+            "type": "string",
+            "enum": [
+                "EKS",
+                "Baltech",
+                "iDTRONIC"
+            ]
+        }
+    },
+    "required": [
+        "comPort",
+        "loginDomain",
+        "deviceType"
+    ]
+}

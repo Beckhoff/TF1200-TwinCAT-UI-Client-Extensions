@@ -1,0 +1,32 @@
+{
+    "name": "RFIDAuth",
+    "version": "1.0.0",
+    "entryPoint": "dist/index.js",
+    "rendererScript": [
+        "dist/RendererScripts/loginHandler.js",
+        "dist/RendererScripts/deviceErrorHandler.js"
+    ],
+    "menuBar": [
+        {
+            "id": "comPorts",
+            "label": "Select COM port...",
+            "submenu": []
+        },
+        {
+            "id": "logoutOnCardRemoved",
+            "label": "Logout when card is removed",
+            "type": "checkbox",
+            "click": "changeLogoutOnCardRemoved"
+        },
+        {
+            "id": "loginWhenCardDetected",
+            "label": "Login when a card is detected",
+            "type": "checkbox",
+            "click": "changeLoginWhenCardDetected"
+        },
+        {
+            "label": "User configuration",
+            "click": "gotoUserConfiguration"
+        }
+    ]
+}

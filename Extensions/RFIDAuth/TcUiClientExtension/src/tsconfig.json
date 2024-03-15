@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "target": "ES2021",
+        "module": "CommonJS",
+        "outDir": "../dist",
+        "sourceMap": true,
+    },
+    "compileOnSave": true,
+    "typeAcquisition": {
+        "include": [ "node" ]
+    },
+}

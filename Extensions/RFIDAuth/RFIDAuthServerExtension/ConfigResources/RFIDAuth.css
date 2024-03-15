@@ -1,0 +1,106 @@
+﻿.user-list{
+    border: 1px solid dimgray;
+}
+
+.user-list-row > div:first-child{
+    padding: 0 3px 0 3px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.user-list-row:nth-child(even){
+    background-color: #dadada;
+}
+
+.user-list-row-content{
+    max-width: 500px;
+    padding: 20px;
+}
+
+.user-list-row-input-group{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.user-list-row-input-group > input {
+    width: 250px;
+}
+
+.user-list-row-content-submit{
+    padding-top: 0;
+    height: 1.5em;
+}
+
+.user-list-right > span {
+    cursor: pointer;
+    color: cornflowerblue;
+}
+
+.user-list-remove{
+    color: red !important;
+}
+
+.input-text-changed{
+    font-weight: bold;
+}
+
+.action-card{
+    border: 1px solid dimgray;
+    padding: 0 3px 0 3px;
+    width: fit-content;
+    margin-top: 20px;
+}
+
+.read-rfid-card-uid-field{
+    display: flex;
+    gap: 10px;
+    margin: 10px;
+}
+
+.read-rfid-card-uid-field > input[readonly]{
+    background-color: #dadada;
+    color: inherit;
+    width: 250px;
+    height: 1.7em;
+}
+
+.read-rfid-card-uid-field > input[readonly][type=button]{
+    cursor: default;
+}
+
+#read-rfid-card-uid-button{
+    width: 250px;
+    height: 1.7em;
+    padding: 0;
+}
+
+.add-user-input-group{
+    width: 510px;
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-user-input-group > input{
+    width: 250px;
+}
+
+#add-user-button{
+    margin: 0 10px 10px 10px;
+    height: 1.5rem;
+    padding: 0;
+    width: 510px;
+}
+
+@media (prefers-color-scheme: dark) {
+    .user-list-row:nth-child(even){
+        background-color: #2e2e2e;
+    }
+
+    .read-rfid-card-uid-field > input[readonly]{
+        background-color: #000;
+    }
+}

@@ -4,6 +4,11 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "ESLint fix",
+            "type": "shell",
+            "command": "npx eslint . --fix"
+        },
+        {
             "label": "Start TcUiClient",
             "type": "shell",
             "command": "/usr/local/etc/TwinCAT/Functions/TF1200-UI-Client/TF1200-UI-Client &",

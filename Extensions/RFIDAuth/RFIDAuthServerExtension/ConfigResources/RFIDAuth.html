@@ -1,0 +1,58 @@
+﻿<tr>
+    <template id="user-list-row-template">
+        <div class="user-list-row">
+            <div>
+                <span class="user-list-row-name"></span>
+                <span class="user-list-right">
+                    <!-- <span class="user-list-disable">Disable</span> -->
+                    <span class="user-list-remove" onclick="removeUser(this)">Remove</span>
+                    <span class="user-list-edit">Edit</span>
+                </span>
+            </div>
+        </div>
+    </template>
+    <template id="user-list-row-content-template">
+        <div class="user-list-row-content">
+            <div class="user-list-row-input-group">
+                <label>RFID Card UID</label>
+                <input name="rfidCardUID" type="text"/>
+            </div>
+            <br>
+            <input class="user-list-row-content-submit" type="button" value="Apply"/>
+        </div>
+    </template>
+    <td>
+        <strong>Users</strong>
+        <div  class="user-list"></div>
+
+    </td>
+</tr>
+<tr>
+    <td>
+        <div class="action-card">
+            <form id="add-user-form">
+                <strong>Add user</strong>
+                <div class="add-user-input-group">
+                    <label for="add-user-username">Username</label>
+                    <input id="add-user-username" type="text" required>
+                </div>
+                <div class="add-user-input-group">
+                    <label for="add-user-uid">RFID Card UID</label>
+                    <input id="add-user-uid" type="text" required>
+                </div>
+                <input id="add-user-button" type="submit" value="Add user">
+            </form>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td>
+        <div class="action-card">
+            <strong>Read current RFID Card UID</strong>
+            <div class="read-rfid-card-uid-field">
+                <input id="read-rfid-card-uid-button" type="button" value="Read current RFID Card UID" title="Only available in TwinCAT UI Client" readonly>
+                <input id="read-rfid-card-uid-input" type="text" readonly>
+            </div>
+        </div>
+    </td>
+</tr>

@@ -131,3 +131,18 @@ dist
 
 # generated npm config files
 /src/packages/*/.npmrc
+
+# build output
+*.dll
+*.exp
+*.lib
+*.pdb
+
+# VSCode settings
+.vscode/settings.json
+
+# Visual Studio files
+.vs
+
+# JavaScript source maps
+*.js.map
