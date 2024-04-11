@@ -1,13 +1,16 @@
 {
     "words": [
         "beckhoff",
+        "subpaths",
         "textblock",
         "unprotect"
     ],
     "ignoreWords": [
         "dpapi",
+        "fifo",
         "ontcuiclientready",
         "primno",
+        "readdir",
         "taskkill",
         "tchmi",
         "tcuiclient",

@@ -1,0 +1,6 @@
+{
+    "name": "FileSystem",
+    "version": "1.0.0",
+    "entryPoint": "index.js",
+    "description": "This extension provides access to the file system of the client"
+}

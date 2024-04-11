@@ -25,7 +25,18 @@
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "brace-style": "error",
+        "object-curly-spacing": [
+            "error",
+            "always"
+        ],
+        "keyword-spacing": "error",
+        "space-before-function-paren": [
+            "error",
+            "never"
+        ],
+        "space-before-blocks": "error"
     },
     "globals": {
         "__extensionName": "readonly",
