@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@beckhoff/tc-ui-client-ext": "file:../../Packages/tc-ui-client-ext-1.1.0.tgz"
+  },
+  "devDependencies": {
+    "@types/node": "20.12.12"
+  }
+}

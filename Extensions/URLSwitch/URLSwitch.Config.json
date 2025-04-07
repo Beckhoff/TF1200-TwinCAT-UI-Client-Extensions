@@ -1,0 +1,7 @@
+{
+    "name": "URLSwitch",
+    "version": "1.0.0",
+    "entryPoint": "index.js",
+    "rendererScript": "renderer.js",
+    "description": "Switch to another URL"
+}
