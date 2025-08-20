@@ -74,6 +74,13 @@ command to install the extensions dependencies:
 npm install
 ```
 
+Next, using the same shell, compile the extension by going into the *TcUiClientExtension/src*
+directory and run the following command:
+
+```sh
+npx tsc
+```
+
 To verify that the extension is identified correctly, start the TwinCAT UI
 Client. If no error message is displayed and the *RFID* entry shows up in the
 application menu, the extension is loaded correctly. If you don't see an
