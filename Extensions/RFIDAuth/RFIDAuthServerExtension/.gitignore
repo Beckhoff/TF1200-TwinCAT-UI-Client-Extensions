@@ -396,3 +396,6 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+config/ExtensionSettings.Schema.json
+config/Language.Schema.json
