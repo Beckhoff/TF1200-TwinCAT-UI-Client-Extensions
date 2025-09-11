@@ -25,6 +25,7 @@
         }
 
         req.requestType = "Subscription";
+        req.intervalTime = 100;
         req.id = Math.round(Math.random() * Number.MAX_SAFE_INTEGER);
         ws.send(JSON.stringify(req));
         ws.addEventListener("message", (ev) => {

@@ -1,18 +1,40 @@
 /* eslint-disable-next-line @typescript-eslint/triple-slash-reference */
 /// <reference path="../../node_modules/@beckhoff/tc-ui-client-ext/renderer.d.ts" />
-
 /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
 declare interface Window {
-    /** The `hmiWsEndpoint()` function is provided by the HMI server and returns the WebSocket endpoint. */
-    hmiWsEndpoint?(): string;
-    /** The `Localizations` object contains localized strings */
-    Localizations?: { LoginFailed?: string }
+    __localizations?: object[],
+    Localizations?: string[]
 }
 
-function performLogin(username: string, password: string): void {
-    // Establish a WebSocket connection to the HMI server to send the login command.
-    if (!window.hmiWsEndpoint) return;
-    const webSocket = new WebSocket(window.hmiWsEndpoint());
+(() => {
+var hostBaseUri: string;
+async function currentWebSocket(): Promise<string> {
+    if (hostBaseUri === undefined) {
+        hostBaseUri = (await fetch(window.location.href, { method: 'HEAD' })).headers.get('X-Custom-Reverse-Proxy-Host-Uri');
+    }
+    if (hostBaseUri) {
+        return hostBaseUri.replace("https://", "wss://").replace("http://", "ws://");
+    }
+    if (window.location.protocol == "https:") {
+        return "wss://" + window.location.host;
+    }
+    return "ws://" + window.location.host;
+}
+
+function getLocalization(localizationId: string): string | null {
+    const localizationEntry = window.__localizations?.[localizationId];
+    if (!localizationEntry) {
+        return window.Localizations?.[localizationId];
+    }
+    let local = localizationEntry[navigator.language.split('-')[0]];
+    if (!local) {
+        local = localizationEntry['en'];
+    }
+    return local;
+}
+
+async function performLogin(username: string, password: string): Promise<void> {
+    const webSocket = new WebSocket(await currentWebSocket());
     webSocket.onopen = () => {
         webSocket.send(JSON.stringify({
             commandOptions: ["SendErrorMessage"],
@@ -40,12 +62,30 @@ function performLogin(username: string, password: string): void {
                 window.location.reload();
             }
         } else if (data.error) {
+            const loginContainer: HTMLElement | null = document.querySelector(".login-container");
+            if (!loginContainer) return;
+
+            // check message and build output string
+            let errorMessage = getLocalization("LoginFailed") + "<br>";
+            switch (data.error.message) {
+                case "AUTH_FAILED":
+                    errorMessage += getLocalization("InvalidUsernameOrPassword");
+                    break;
+                case "AUTH_WAIT":
+                    errorMessage += getLocalization("TooManyFailedLoginAttempts");
+                    break;
+                default:
+                    if (data.error.reason) errorMessage += ` ${data.error.reason}`;
+            }
+
             // Create error container and show the error message
-            const loginContainer = document.querySelector(".login-container");
-            const errorParagraph = document.createElement("p");
-            errorParagraph.classList.add("message", "error");
-            errorParagraph.innerText = `${window.Localizations?.LoginFailed ?? data.error?.message + ":"} ${data.error?.reason}`;
-            loginContainer?.prepend(errorParagraph);
+            let errorParagraph: HTMLParagraphElement | null = loginContainer?.querySelector("p.error");
+            if (errorParagraph === null) {
+                errorParagraph = document.createElement("p");
+                errorParagraph.classList.add("message", "error");
+                loginContainer?.prepend(errorParagraph);
+            }
+            errorParagraph.innerHTML = errorMessage;
         }
     };
 }
@@ -63,3 +103,5 @@ tcuiclient.on(__extensionName + ".gotoUserConfiguration", domain => {
     // Navigate to the user configuration page of the server extension
     window.location.href = `/Config/Extensions/${domain}?Content=%5F%5FCUSTOM%5FCONFIG%5F%5F`;
 });
+
+})();
