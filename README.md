@@ -70,7 +70,7 @@ the configuration file of the TwinCAT UI Client as follows:
     "my-extension": {
         "name": "MyExtension",
         "directory": "path/to/your/extension/",
-        "version": "^1.0.0",
+        "version": "^1.0.0"
     }
 }
 ```
@@ -180,7 +180,7 @@ current one may be busy. Here is an example for an `"extensions"` object:
 ```
 
 To debug the extension, you can attach any *Node.JS* debugger to it. The
-extension will wait for a debugger to be attached before executing the
+extension **will wait for a debugger to be attached before executing** the
 extension code.
 
 If you want to debug a renderer script, you can open the *DevTools* in the
@@ -197,62 +197,15 @@ configuration file of the TwinCAT UI Client:
 
 ### Debugging with Visual Studio Code
 
-To debug your extension using Visual Studio Code, you can add a launch
-configuration to the *.vscode/launch.json* file. Ensure that the port specified
-in the launch configuration matches the previously specified debug port:
+To debug your extension using Visual Studio Code, you can use the launch
+configurations provided in [.vscode/launch.json](.vscode/launch.json) and
+[.vscode/tasks.json](.vscode/tasks.json) respectively. Copy the configurations
+to your workspace and select the correct launch configuration.
 
-```json
-"configurations": [
-    {
-        "type": "node",
-        "request": "attach",
-        "name": "Attach to my extension",
-        "port": 1234,
-        "address": "localhost",
-        "preLaunchTask": "Start TcUiClient",
-        "postDebugTask": "Stop TcUiClient"
-    }
-]
-```
-
-The launch configuration contains references to `preLaunchTask` and
-`postDebugTask`. These tasks are used to start the TwinCAT UI Client before you
-can start debugging and stop it afterwards. To set up these tasks, you need to
-define two new tasks in the *.vscode/tasks.json* file as follows:
-
-```json
-"tasks": [
-    {
-        "label": "Start TcUiClient",
-        "type": "shell",
-        "command": "/usr/local/etc/TwinCAT/Functions/TF1200-UI-Client/TF1200-UI-Client &",
-        "windows": {
-            "command": "Start-Process \"C:\\Program Files (x86)\\Beckhoff\\TcUiClient\\TF1200-UI-Client.exe\"",
-            "options": {
-                "shell": {
-                    "executable": "powershell.exe"
-                }
-            }
-        }
-    },
-    {
-        "label": "Stop TcUiClient",
-        "type": "shell",
-        "command": "echo \"Task not implemented\"",
-        "windows": {
-            "command": "Get-Process TF1200-UI-Client -ErrorAction SilentlyContinue | ForEach-Object { $_.CloseMainWindow() | Out-Null }",
-            "options": {
-                "shell": {
-                    "executable": "powershell.exe"
-                }
-            }
-        }
-    }
-]
-```
-
-Make sure to replace the path to the *TF1200-UI-Client[.exe]* to match your
-installation directory.
+- `Start Extension` will try to start the TwinCAT UI Client before debugging and terminate
+it afterwards. Make sure to close the TwinCAT UI Client beforehand.
+- With the `Attach to TcUiClient` configuration you can attach a debugger to a
+running instance of the TwinCAT UI Client.
 
 Refer to the following articles for assistance if you encounter any issues with
 launch configurations or tasks:

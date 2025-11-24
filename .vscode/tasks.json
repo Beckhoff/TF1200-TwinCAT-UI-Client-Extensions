@@ -39,7 +39,7 @@
         {
             "id": "executablePath",
             "type": "promptString",
-            "default": "C:\\Program Files (x86)\\Beckhoff\\TcUiClient\\TF1200-UI-Client.exe",
+            "default": "C:\\Program Files (x86)\\Beckhoff\\TwinCAT\\Functions\\TF1200-UI-Client\\TF1200-UI-Client.exe",
             "description": "Path to the TF1200-UI-Client executable"
         }
     ]
